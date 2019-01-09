@@ -1,0 +1,12 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model CamelontaEpi.Models.Pages.StartPage
+
+<h1 @Html.EditAttributes(m => m.Heading)>
+    @(Model.Heading ?? Model.Name)
+</h1>
+
+<div>
+  @Html.PropertyFor(m => m.MainBody)
+</div>
