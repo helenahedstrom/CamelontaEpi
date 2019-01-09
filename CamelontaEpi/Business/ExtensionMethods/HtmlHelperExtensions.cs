@@ -12,7 +12,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.WebPages;
 
-namespace AlloyTraining.Business.ExtensionMethods
+namespace CamelontaEpi.Business.ExtensionMethods
 {
     public static class HtmlHelperExtensions
     {

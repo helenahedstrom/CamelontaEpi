@@ -11,7 +11,8 @@ namespace CamelontaEpi.Models.Pages
         Description = "The home page",
         GroupName = SiteGroupNames.Specialized,
         Order = 10)]
-    public class StartPage : PageData
+    [SiteStartIcon]
+    public class StartPage : SitePageData
     {
         [CultureSpecific]
         [Display(Name = "Heading", Description =
@@ -24,5 +25,11 @@ namespace CamelontaEpi.Models.Pages
         Description = "The main body will be shown in the main content area of the page, using the XHTML-editor you can insert for example text, images and tables.",
         GroupName = SystemTabNames.Content, Order = 20)]
         public virtual XhtmlString MainBody { get; set; }
+
+        [CultureSpecific]
+        [Display(Name = "Footer text",
+        Description = "The footer text will be shown at the bottom of every page.",
+        GroupName = SiteTabNames.SiteSettings, Order = 10)]
+        public virtual XhtmlString FooterText { get; set; }
     }
 }

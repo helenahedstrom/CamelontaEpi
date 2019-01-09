@@ -3,7 +3,7 @@ using EPiServer.Core;
 using EPiServer.ServiceLocation;
 using System.Linq;
 
-namespace AlloyTraining.Business.ExtensionMethods
+namespace CamelontaEpi.Business.ExtensionMethods
 {
     public static class SectionExtensionMethods
     {
