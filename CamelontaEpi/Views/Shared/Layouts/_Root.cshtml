@@ -29,6 +29,7 @@
     <script type="text/javascript" src="~/Static/js/myscript.js"></script>
     <script src="~/Static/js/sorting.js" type="text/javascript"></script>
     <script src="~/Static/js/jquery.isotope.js" type="text/javascript"></script>
+    <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC4qle43Nt_kWQ4zT3rUDf21hlddl0W5bc&callback=gmapInit' defer></script>
     <!--script type="text/javascript" src="js/jquery.nav.js"></script-->
 
     <script>
@@ -277,7 +278,25 @@
             jQuery(".pretty a[rel^='prettyPhoto']").prettyPhoto({ animation_speed: 'normal', theme: 'light_square', slideshow: 3000, autoplay_slideshow: true, social_tools: '' });
 
         });
+
+        var map;
+        var mapHolder = document.getElementById("mapHolder");
+        function gmapInit() {
+            map = new google.maps.Map(mapHolder, {
+                center: { lat: parseFloat(mapHolder.dataset.lat), lng: parseFloat(mapHolder.dataset.lng) },
+                zoom: 15
+            });
+
+            var marker = new google.maps.Marker({
+                // The below line is equivalent to writing:
+                // position: new google.maps.LatLng(-34.397, 150.644)
+                position: { lat: parseFloat(mapHolder.dataset.lat), lng: parseFloat(mapHolder.dataset.lng) },
+                map: map
+            });
+        }
+
     </script>
+
     @Html.RequiredClientResources("Footer")
 </body>
 </html>

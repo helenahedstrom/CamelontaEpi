@@ -546,6 +546,16 @@ h1 {
     overflow: hidden;
 }
 
+#mapHolder {
+    height: 400px;
+    width: 100%;
+    margin-top: 2em;
+    display: inline-block;
+}
+
+form #215b511d-248e-408c-9c1c-fa9c71804161  {
+    width: 50% !important;
+}
 /**/
 /**/
 .hr1 {

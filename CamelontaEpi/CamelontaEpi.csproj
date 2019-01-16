@@ -251,6 +251,7 @@
     <Compile Include="Business\ScheduledJob1.cs" />
     <Compile Include="Controllers\BlogLandingPageController.cs" />
     <Compile Include="Controllers\ListingBlockController.cs" />
+    <Compile Include="Controllers\MapBlockController.cs" />
     <Compile Include="Controllers\PageControllerBase.cs" />
     <Compile Include="Controllers\StandardPageController.cs" />
     <Compile Include="Controllers\StartPageController.cs" />
@@ -259,6 +260,7 @@
     </Compile>
     <Compile Include="Models\Blocks\EmployeeBlock.cs" />
     <Compile Include="Models\Blocks\ListingBlock.cs" />
+    <Compile Include="Models\Blocks\MapBlock.cs" />
     <Compile Include="Models\Media\AnyFile.cs" />
     <Compile Include="Models\Media\ImageFile.cs" />
     <Compile Include="Models\Media\SvgFile.cs" />
@@ -429,6 +431,7 @@
     <Content Include="Views\BlogPostPage\Index.cshtml" />
     <Content Include="Views\Shared\EmployeeBlock.cshtml" />
     <Content Include="Views\Shared\ImageFile.cshtml" />
+    <Content Include="Views\MapBlock\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

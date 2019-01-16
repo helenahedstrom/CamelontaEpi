@@ -1,0 +1,9 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+@model CamelontaEpi.Models.Blocks.MapBlock
+
+@*<div>@Html.DisplayFor(x => x.Latitude)</div>
+<div>@Html.DisplayFor(x => x.Longitude)</div>
+<div>@Html.DisplayFor(x => x.Description)</div>*@
+
+<div id="mapHolder" data-lat="@Html.DisplayFor(x => x.Latitude)" data-lng="@Html.DisplayFor(x => x.Longitude)" data-info="@Html.DisplayFor(x => x.Description)" class="gmap">Loading...</div>
