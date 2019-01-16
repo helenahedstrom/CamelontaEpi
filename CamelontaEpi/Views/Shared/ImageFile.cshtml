@@ -1,0 +1,10 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model CamelontaEpi.Models.Media.ImageFile
+
+<div class="row">
+    <figure>
+        <img src="@Url.ContentUrl(Model.ContentLink)" alt="@Model.Description"/>
+    </figure>
+</div>

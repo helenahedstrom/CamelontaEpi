@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
@@ -12,6 +13,7 @@ namespace CamelontaEpi.Models.Pages
         GroupName = SiteGroupNames.Specialized,
         Order = 10)]
     [SiteStartIcon]
+    [AvailableContentTypes(Include = new[] { typeof(StandardPage) })]
     public class StartPage : SitePageData
     {
         [CultureSpecific]
@@ -31,5 +33,22 @@ namespace CamelontaEpi.Models.Pages
         Description = "The footer text will be shown at the bottom of every page.",
         GroupName = SiteTabNames.SiteSettings, Order = 10)]
         public virtual XhtmlString FooterText { get; set; }
+
+        [Display(
+                   Name = "Hero Text",
+                   Description = "The hero text will be shown at the bottom of every page.",
+                   GroupName = SiteTabNames.SiteSettings,
+                   Order = 320)]
+        [Required]
+        public virtual IList<string> HeroText { get; set; }
+
+        [CultureSpecific]
+        [Display(Name = "Main content area",
+        Description = "Drag and drop images, blocks, folders, and pages with partial templates.",
+        GroupName = SystemTabNames.Content,
+        Order = 30)]
+        [AllowedTypes(typeof(StandardPage), typeof(BlockData),
+        typeof(ImageData), typeof(ContentFolder))]
+        public virtual ContentArea MainContentArea { get; set; }
     }
 }

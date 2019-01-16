@@ -1,0 +1,36 @@
+﻿@using CamelontaEpi.Business.ExtensionMethods 
+@using CamelontaEpi.Models.Pages 
+@using CamelontaEpi.Models.ViewModels 
+@using EPiServer.Core 
+@model IPageViewModel<SitePageData>
+
+<div class="navmenu" style="text-align: center;">
+    <ul id="menu">
+        @{bool selected = Model.CurrentPage.ContentLink.CompareToIgnoreWorkID(ContentReference.StartPage); }
+        @if (selected)
+        {
+            <li class="active"> @Html.ContentLink(ContentReference.StartPage)</li>
+        }
+        else
+        {
+            <li>
+                @Html.ContentLink(ContentReference.StartPage)
+            </li>
+        }
+
+        @foreach (SitePageData page in Model.MenuPages)
+        {
+
+            selected = Model.CurrentPage.ContentLink.CompareToIgnoreWorkID(page.ContentLink);
+            if (selected)
+            {
+                <li class="active">@Html.ContentLink(page.ContentLink)</li>
+            }
+            else
+            {
+                <li>@Html.ContentLink(page.ContentLink)</li>
+
+            }
+        }
+    </ul>
+    </div>

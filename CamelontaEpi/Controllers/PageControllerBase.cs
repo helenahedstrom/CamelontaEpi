@@ -29,6 +29,7 @@ namespace CamelontaEpi.Controllers
         protected IPageViewModel<TPage> CreatePageViewModel<TPage>(
         TPage currentPage) where TPage : SitePageData
         {
+            var ancestors = loader.GetAncestors(currentPage.ContentLink);
             var viewmodel = PageViewModel.Create(currentPage);
             viewmodel.StartPage = loader.Get<StartPage>(ContentReference.StartPage);
             viewmodel.MenuPages = FilterForVisitor.Filter(

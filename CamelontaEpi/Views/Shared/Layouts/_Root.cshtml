@@ -1,6 +1,7 @@
 ﻿@using CamelontaEpi.Business.ExtensionMethods
 @using CamelontaEpi.Models.ViewModels
 @using CamelontaEpi.Models.Pages
+@using EPiServer.Framework.Web.Mvc.Html
 @model IPageViewModel<SitePageData>
 <html lang="@Model.CurrentPage.Language">
 <head>
@@ -12,10 +13,12 @@
     <meta name="description" content="@Model.CurrentPage.MetaDescription" />
     <link href="~/Static/css/bootstrap.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="~/Static/css/font-awesome.css">
-    <link href="~/Static/css/camera.css" rel="stylesheet" id='camera-css' type='text/css' media='all'/>
+    <link href="~/Static/css/camera.css" rel="stylesheet" id='camera-css' type='text/css' media='all' />
     <link rel="stylesheet" type="text/css" href="~/Static/css/slicknav.css">
     <link rel="stylesheet" href="~/Static/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="~/Static/css/style.css">
+    @Html.CanonicalLink()
+    @Html.AlternateLinks()
 
 
     <script type="text/javascript" src="~/Static/js/jquery-1.8.3.min.js"></script>
@@ -43,7 +46,7 @@
             });
         });
     </script>
-
+    @Html.RequiredClientResources("Header")
 </head>
 <body>
     @Html.RenderEPiServerQuickNavigator()
@@ -82,16 +85,17 @@
                             </div>
                         </div>
                         <div class="col-md-8">
-                            <div class="navmenu" style="text-align: center;">
-                                <ul id="menu">
-                                    <li class="active"><a href="#home">Home</a></li>
-                                    <li><a href="#about">About</a></li>
-                                    <li><a href="#project">Projects</a></li>
-                                    <li><a href="#news">Blog</a></li>
-                                    <li class="last"><a href="#contact">Contact</a></li>
-                                    <!--li><a href="#features">Features</a></li-->
-                                </ul>
-                            </div>
+                            @Html.Partial("_NavigationMenu")
+                            @*<div class="navmenu" style="text-align: center;">
+                                    <ul id="menu">
+                                        <li class="active"><a href="#home">Home</a></li>
+                                        <li><a href="#about">About</a></li>
+                                        <li><a href="#project">Projects</a></li>
+                                        <li><a href="#news">Blog</a></li>
+                                        <li class="last"><a href="#contact">Contact</a></li>
+                                        li><a href="#features">Features</a></li
+                                    </ul>
+                                </div>*@
                         </div>
                     </div>
                 </div>
@@ -100,21 +104,14 @@
                 <div class="row wrap">
                     <div class="col-md-12 gallery">
                         <div class="camera_wrap camera_white_skin" id="camera_wrap_1">
-                            <div data-thumb="" data-src="../Static/images/slides/blank.gif">
-                                <div class="img-responsive camera_caption fadeFromBottom">
-                                    <h2>We listen.</h2>
+                            @foreach (var text in Html.RenderHeroText())
+                            {
+                                <div data-thumb="" data-src="../../../Static/images/slides/blank.gif">
+                                    <div class="img-responsive camera_caption fadeFromBottom">
+                                        <h2>@text</h2>
+                                    </div>
                                 </div>
-                            </div>
-                            <div data-thumb="" data-src="../Static/images/slides/blank.gif">
-                                <div class="img-responsive camera_caption fadeFromBottom">
-                                    <h2>We discuss.</h2>
-                                </div>
-                            </div>
-                            <div data-thumb="" data-src="../Static/images/slides/blank.gif">
-                                <div class="img-responsive camera_caption fadeFromBottom">
-                                    <h2>We develop.</h2>
-                                </div>
-                            </div>
+                            }
                         </div><!-- #camera_wrap_1 -->
                     </div>
                 </div>
@@ -248,12 +245,14 @@
             var winTop = $(window).scrollTop();
             var rangeTop = 200;
             var rangeBottom = 500;
+            var top = 20;
             $('.navmenu').find('a').each(function () {
                 contentTop.push($($(this).attr('href')).offset().top);
                 contentBottom.push($($(this).attr('href')).offset().top + $($(this).attr('href')).height());
             })
             $.each(contentTop, function (i) {
                 if (winTop > contentTop[i] - rangeTop && winTop < contentBottom[i] - rangeBottom) {
+                    console.log("kommervi in?");
                     $('.navmenu li')
                         .removeClass('active')
                         .eq(i).addClass('active');
@@ -279,5 +278,6 @@
 
         });
     </script>
+    @Html.RequiredClientResources("Footer")
 </body>
 </html>

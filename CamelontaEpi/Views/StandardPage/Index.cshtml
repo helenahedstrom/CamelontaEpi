@@ -1,0 +1,14 @@
+﻿@using CamelontaEpi.Models.ViewModels
+@using CamelontaEpi.Models.Pages
+@model PageViewModel<StandardPage>
+@{
+    Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml"; }
+
+
+<div class="row">
+    <div class="span8 clearfix">
+        @Html.PropertyFor(x => x.CurrentPage.MainBody)
+    </div>
+</div>
+
+@Html.PropertyFor(m => m.CurrentPage.MainContentArea)
