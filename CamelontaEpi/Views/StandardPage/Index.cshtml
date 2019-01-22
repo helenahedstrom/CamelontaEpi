@@ -1,8 +1,17 @@
 ﻿@using CamelontaEpi.Models.ViewModels
 @using CamelontaEpi.Models.Pages
 @model PageViewModel<StandardPage>
-@{
-    Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml"; }
+@if (Model.CurrentPage.Name.Contains("Contact") || Model.CurrentPage.Name.Contains("Kontakt"))
+{
+
+        Layout = "~/Views/Shared/Layouts/_Root.cshtml"; 
+        }
+        else
+        {
+
+    Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml"; 
+
+        }
 
 
 <div class="row">

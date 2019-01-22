@@ -7,7 +7,11 @@ window.jQuery = window.$ = jQuery;
 /*-----------------------------------------------------------------------------------*/
 /*	CHART
 /*-----------------------------------------------------------------------------------*/
-jQuery(document).ready(function(){
+jQuery(document).ready(function () {
+    $("#menu li").click(function () {
+        $(this).addClass('active').siblings().removeClass('active');
+
+    });
     var chart = $('.chart'),
         chartNr = $('.chart-content'),
         chartParent = chart.parent();
@@ -46,6 +50,8 @@ jQuery(document).ready(function(){
         });
     }
 });
+
+
 
 /**!
  * easyPieChart

@@ -5,10 +5,10 @@
 // nest the left navigation inside the root layout
 Layout = "~/Views/Shared/Layouts/_Root.cshtml"; }
 <div class="row">
-    <div class="span4">
-        @RenderSection("_LeftNavigationMenu", required: false)
+    <div class="col-md-3">
+        @{Html.RenderPartial("_LeftNavigationMenu", Model);}
     </div>
-    <div class="span8">
+    <div class="col-md-9">
         @RenderBody()
     </div>
 </div>

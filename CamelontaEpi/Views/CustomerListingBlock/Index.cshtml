@@ -1,0 +1,38 @@
+﻿@using EPiServer.Core
+@model CamelontaEpi.Models.ViewModels.ListingBlockViewModel
+
+@if (Model.Pages == null)
+{
+    if (EPiServer.Editor.PageEditing.PageIsInEditMode)
+    {
+        <div class="label label-warning">Set the ShowChildrenOfThisPage property to a page.</div>
+    }
+}
+else
+{ <h2 @Html.EditAttributes(x => x.Heading)>@Model.Heading</h2>
+if (Model.Pages.Count() == 0)
+{
+    <div class="label label-warning">The page selected has no children.</div>
+    }
+    <div class="pretty isotope">
+        @foreach (PageData page in Model.Pages)
+        {
+            var imageUrl = page.GetPropertyValue<ContentReference>("PageImage");
+
+
+        <div class="element col-sm-10 gall branding">
+            <a class="plS" href="@Url.ContentUrl(page.ContentLink)" rel="prettyPhoto[gallery2]">
+                <img class="img-responsive picsGall" src="@Url.ContentUrl(imageUrl)" alt="pic1 Gallery" />
+            </a>
+            <div class="view project_descr ">
+                <p>@Html.Raw(page.Property["MainBody"].Value)</p>
+
+            </div>
+            <a class="read-more-link" href="@Url.ContentUrl(page.ContentLink)">@Html.Translate("/CaseLandingPage/ReadMoreButton")</a>
+        </div>
+
+
+        }
+    </div>
+}
+

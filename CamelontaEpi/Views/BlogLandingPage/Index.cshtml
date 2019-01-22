@@ -2,7 +2,7 @@
 @using CamelontaEpi.Models.Pages 
 @model  PageViewModel <BlogLandingPage> 
     @{
-Layout = "~/Views/Shared/Layouts/_LeftNavigation.cshtml"; } 
+Layout = "~/Views/Shared/Layouts/_Root.cshtml"; } 
 <h1 @Html.EditAttributes(m => m.CurrentPage.MetaTitle)>
     @(Model.CurrentPage.MetaTitle ?? Model.CurrentPage.Name)
 </h1>

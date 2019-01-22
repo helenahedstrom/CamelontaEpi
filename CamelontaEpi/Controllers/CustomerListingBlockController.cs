@@ -13,24 +13,24 @@ using EPiServer.Web.Mvc;
 
 namespace CamelontaEpi.Controllers
 {
-    public class ListingBlockController : BlockController<ListingBlock>
+    public class CustomerListingBlockController : BlockController<CustomerListingBlock>
     {
         private readonly IContentLoader loader;
-        public ListingBlockController(IContentLoader loader)
+        public CustomerListingBlockController(IContentLoader loader)
         {
             this.loader = loader;
         }
-        public override ActionResult Index(ListingBlock currentBlock)
+        public override ActionResult Index(CustomerListingBlock currentBlock)
         {
             var viewmodel = new ListingBlockViewModel
 
             {
                 Heading = currentBlock.Heading
             };
-            if (currentBlock.ShowChildrenOfThisPage != null)
+            if (currentBlock.ChildrenOfThisPage != null)
             {
                 IEnumerable<PageData> children = loader.GetChildren<PageData>(
-                currentBlock.ShowChildrenOfThisPage);
+                currentBlock.ChildrenOfThisPage);
                 // Remove pages:
                 // 1. that are not published
                 // 2. that the visitor does not have Read access to
@@ -41,7 +41,7 @@ namespace CamelontaEpi.Controllers
                 viewmodel.Pages = filteredChildren.Cast<PageData>()
                 .Where(page => page.VisibleInMenu);
             }
-           return PartialView(viewmodel);
+            return PartialView(viewmodel);
         }
     }
 }

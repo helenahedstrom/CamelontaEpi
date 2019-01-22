@@ -30,7 +30,7 @@ foreach (PageData page in Model.Pages)
                 }
 
                 <p>@page.Property["teaser"].Value</p>
-                <a href="@Url.ContentUrl(page.ContentLink)" class="blue-button">Read More</a>
+                <a href="@Url.ContentUrl(page.ContentLink)" class="blue-button">@Html.Translate("/BlogLandingPage/ShowMoreButton")</a>
          
             </div>
         </div>

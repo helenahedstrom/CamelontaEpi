@@ -17,6 +17,7 @@
     <link rel="stylesheet" type="text/css" href="~/Static/css/slicknav.css">
     <link rel="stylesheet" href="~/Static/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
     <link rel="stylesheet" type="text/css" href="~/Static/css/style.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
     @Html.CanonicalLink()
     @Html.AlternateLinks()
 
@@ -30,6 +31,7 @@
     <script src="~/Static/js/sorting.js" type="text/javascript"></script>
     <script src="~/Static/js/jquery.isotope.js" type="text/javascript"></script>
     <script src='https://maps.googleapis.com/maps/api/js?key=AIzaSyC4qle43Nt_kWQ4zT3rUDf21hlddl0W5bc&callback=gmapInit' defer></script>
+    <script src="~/Static/js/bootstrap-collapse.js"></script>
     <!--script type="text/javascript" src="js/jquery.nav.js"></script-->
 
     <script>
@@ -126,8 +128,8 @@
         <div class="container">
             <div class="row footer">
                 <div class="col-md-12">
-                    <h3>Subscribe for Our Newsletter!</h3>
-                    <p>Subscribe to our newsletter email to get notification about fresh news, latest promos, giveaways and free stuff from Skew. Stay always up-to-date!</p>
+                    <h3>@Html.Translate("/CaseLandingPage/NewsletterTitle")</h3>
+                    <p>@Html.Translate("/CaseLandingPage/NewsletterDescription")</p>
                     <div class="fr">
                         <div style="display: inline-block;">
                             <input class="col-md-6 fEmail" name='Email' placeholder='Enter Your Email' />
