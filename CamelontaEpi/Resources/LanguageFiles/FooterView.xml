@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language name="English" id="en">
+    <footer>
+      <NewsletterTitle>Subscribe to our newsletter!</NewsletterTitle>
+      <NewsletterDescription>Stay updated with everything that's happening in the digital world.</NewsletterDescription>
+      <NewsletterButton>Subscribe!</NewsletterButton>
+    </footer>
+  </language>
+
+  <language name="Swedish" id="sv">
+    <footer>
+      <NewsletterTitle>Anmäl dig till vårt nyhetsbrev!</NewsletterTitle>
+      <NewsletterDescription>Håll dig uppdaterad inom allt nytt i den digitala världen.</NewsletterDescription>
+      <NewsletterButton>Anmäl!</NewsletterButton>
+    </footer>
+  </language>
+</languages>

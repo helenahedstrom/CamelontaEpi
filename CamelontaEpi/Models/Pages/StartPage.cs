@@ -34,6 +34,7 @@ namespace CamelontaEpi.Models.Pages
         GroupName = SiteTabNames.SiteSettings, Order = 10)]
         public virtual XhtmlString FooterText { get; set; }
 
+        [CultureSpecific]
         [Display(
                    Name = "Hero Text",
                    Description = "The hero text will be shown at the bottom of every page.",
