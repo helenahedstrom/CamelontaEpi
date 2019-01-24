@@ -186,26 +186,23 @@
 
                 return r;
             }
+            var counter = 0;
+            var originalCurval = parseInt($('#counter').text());
 
             setTimeout(function () {
                 $('#counter').text('0');
                 $('#counter1').text('0');
                 $('#counter2').text('0');
                 setInterval(function () {
-
+                    
                     var curval = parseInt($('#counter').text());
-                    var curval1 = parseInt($('#counter1').text().replace(' ', ''));
-                    var curval2 = parseInt($('#counter2').text());
-                    if (curval <= 707) {
+
+                    if (counter < originalCurval) {
                         $('#counter').text(curval + 1);
+                        counter += 1;
                     }
-                    if (curval1 <= 12280) {
-                        $('#counter1').text(sdf_FTS((curval1 + 20), 0, ' '));
-                    }
-                    if (curval2 <= 245) {
-                        $('#counter2').text(curval2 + 1);
-                    }
-                }, 2);
+
+                }, 200);
 
             }, 500);
         });

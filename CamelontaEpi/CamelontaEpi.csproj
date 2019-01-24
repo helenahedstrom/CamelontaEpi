@@ -248,7 +248,7 @@
     <Compile Include="Business\ExtensionMethods\SectionExtensionMethods.cs" />
     <Compile Include="Business\Initialization\RegisterAdminInitializationModule.cs" />
     <Compile Include="Business\Initialization\RegisterDependencyResolverInitializationModule.cs" />
-    <Compile Include="Business\ScheduledJob1.cs" />
+    <Compile Include="Business\ScheduledJobFacts.cs" />
     <Compile Include="Controllers\BlogLandingPageController.cs" />
     <Compile Include="Controllers\CaseLandingPageController.cs" />
     <Compile Include="Controllers\CustomerListingBlockController.cs" />
@@ -262,6 +262,7 @@
     </Compile>
     <Compile Include="Models\Blocks\CustomerListingBlock.cs" />
     <Compile Include="Models\Blocks\EmployeeBlock.cs" />
+    <Compile Include="Models\Blocks\FactsBlock.cs" />
     <Compile Include="Models\Blocks\ListingBlock.cs" />
     <Compile Include="Models\Blocks\MapBlock.cs" />
     <Compile Include="Models\Media\AnyFile.cs" />
@@ -442,6 +443,7 @@
     <Content Include="Views\Shared\_LeftNavigationMenu.cshtml" />
     <Content Include="Views\CustomerListingBlock\Index.cshtml" />
     <Content Include="Views\CaseLandingPage\Index.cshtml" />
+    <Content Include="Views\Shared\FactsBlock.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

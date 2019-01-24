@@ -4,6 +4,18 @@
 
 @model PageViewModel<CamelontaEpi.Models.Pages.StartPage>
 
+@if (!Model.CurrentPage.Language.Name.Contains("sv"))
+{
+    <div class="row">
+        <div class="col-md-12 project">
+            <h3 id="counter">@Model.CurrentPage.FactBlock.FactNumber</h3>
+            <h4>@Model.CurrentPage.FactBlock.FactName</h4>
+            <p>@Model.CurrentPage.FactBlock.FactDescription </p>
+        </div>
+    </div>
+}
+
+
 <h1 @Html.EditAttributes(m => m.CurrentPage.Heading)>
     @(Model.CurrentPage.Heading ?? Model.CurrentPage.Name)
 </h1>

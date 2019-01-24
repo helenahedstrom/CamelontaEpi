@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using CamelontaEpi.Models.Blocks;
 using EPiServer.Core;
 using EPiServer.DataAbstraction;
 using EPiServer.DataAnnotations;
@@ -51,5 +52,12 @@ namespace CamelontaEpi.Models.Pages
         [AllowedTypes(typeof(StandardPage), typeof(BlockData),
         typeof(ImageData), typeof(ContentFolder))]
         public virtual ContentArea MainContentArea { get; set; }
+
+
+        [Display(Name = "Fact Block",
+        Description = "facts",
+        GroupName = SystemTabNames.Content,
+        Order = 9)]
+        public virtual FactsBlock FactBlock { get; set; }
     }
 }
